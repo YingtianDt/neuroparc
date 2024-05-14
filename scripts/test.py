@@ -1,5 +1,5 @@
 import numpy as np
-from neuroparc.atlas import Atlas
+from neuroparc.atlas_ import Atlas
 from neuroparc.surfaces import Surface
 
 all_atlases = Atlas.get_atlas_names()
