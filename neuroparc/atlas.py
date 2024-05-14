@@ -89,7 +89,7 @@ class Atlas:
         return labels
 
     @property
-    def rev_lavel_name_map(self):
+    def rev_label_name_map(self):
         return {v: k for k, v in self.label_name_map.items()}
     
     @property
