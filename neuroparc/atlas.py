@@ -29,7 +29,7 @@ def get_label_name_map(atlas_name):
     with open(csv_path) as f:
         lines = f.readlines()
     label_name_map = {}
-    for line in lines[1:]:
+    for line in lines:
         label_id, label_name = line.strip().split(',')
         label_name_map[int(label_id)] = label_name
     return label_name_map
