@@ -27,9 +27,10 @@ def get_label_name_map(atlas_name):
 
 
 class Atlas:
-    def __init__(self, name):
+    def __init__(self, name, annotation=None):
         self.name = name
-        self.annotation = load_annotation(name)
+        annotation = annotation if annotation is not None else load_annotation(name)
+        self.annotation = np.array(annotation)
 
     @property
     @memorized
@@ -66,6 +67,8 @@ class Atlas:
         nn.fit(this_xyz)
         _, indices = nn.kneighbors(other_xyz)
         labels = self.annotation[indices]
+        if labels.dtype == np.float:
+            return np.array([np.median(labels[i]) for i in range(len(labels))])
         return np.array([np.argmax(np.bincount(labels[i])) for i in range(len(labels))])
 
     @property
