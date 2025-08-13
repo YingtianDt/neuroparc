@@ -9,7 +9,7 @@ from .annotations import load_annotation
 
 
 MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
-LABEL_DIR = os.path.join(MODULE_DIR, os.path.pardir, 'atlases/label/Human')
+LABEL_DIR = os.path.join(MODULE_DIR, 'atlases/label/Human')
 META_DIR = os.path.join(LABEL_DIR, 'Metadata-json')
 LABEL_NAME_DIR = os.path.join(LABEL_DIR, 'Anatomical-labels-csv')
 CACHE_DIR = os.path.join(MODULE_DIR, 'cache')
