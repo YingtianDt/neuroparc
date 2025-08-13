@@ -47,7 +47,7 @@ class Atlas:
         elif num_surf_node == 163842 * 2:
             return "fsaverage7"
         else:
-            raise ValueError("Unknown surface size")
+            raise ValueError("Unknown surface size {}".format(num_surf_node))
 
     @classmethod
     def get_atlas_names(cls):
@@ -67,7 +67,7 @@ class Atlas:
         nn.fit(this_xyz)
         _, indices = nn.kneighbors(other_xyz)
         labels = self.annotation[indices]
-        if labels.dtype == np.float:
+        if labels.dtype == float:
             return np.array([np.median(labels[i]) for i in range(len(labels))])
         return np.array([np.argmax(np.bincount(labels[i])) for i in range(len(labels))])
 
