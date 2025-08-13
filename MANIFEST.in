@@ -1,2 +1,2 @@
 include neuroparc/annotations/data/*
-include neuroparc/atlases/*
+recursive-include neuroparc/atlases *
